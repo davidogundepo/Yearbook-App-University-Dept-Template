@@ -24,7 +24,7 @@ String cvStatement1 = "1. Patriotism\n\n";
 String cvStatement2 = "2. Integrity\n\n";
 String cvStatement3 = "3. Efficiency\n\n";
 String cvStatement4 = "4. Commitment\n\n";
-String cvStatement5 = "4. Team Work\n\n";
+String cvStatement5 = "5. Team Work\n\n";
 
 
 String whyUniversity = "WHY $universityName?".toUpperCase();

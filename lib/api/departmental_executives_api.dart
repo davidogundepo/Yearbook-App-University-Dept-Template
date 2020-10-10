@@ -5,7 +5,7 @@ import '../notifier/departmental_executives_notifier.dart';
 
 getDepartmentalExecutives(DepartmentalExecutivesNotifier departmentalExecutivesNotifier) async{
   QuerySnapshot snapshot = await Firestore.instance
-      .collection('DepartmentalExecutives').orderBy("name").getDocuments();
+      .collection('DepartmentalExecutives').orderBy("id").getDocuments();
 
   List<DepartmentalExecutives> _departmentalExecutivesList = [];
 
