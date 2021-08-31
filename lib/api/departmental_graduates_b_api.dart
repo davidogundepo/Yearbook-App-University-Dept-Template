@@ -4,13 +4,13 @@ import '../model/DepartmentalGraduatesB.dart';
 import '../notifier/departmental_graduates_b_notifier.dart';
 
 getDepartmentalGraduatesB(DepartmentalGraduatesBNotifier departmentalGraduatesBNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('DepartmentGraduatesB').orderBy("name").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('DepartmentGraduatesB').orderBy("name").get();
 
   List<DepartmentalGraduatesB> _departmentalGraduatesBList = [];
 
-  snapshot.documents.forEach((document) {
-    DepartmentalGraduatesB departmentalGraduatesB = DepartmentalGraduatesB.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    DepartmentalGraduatesB departmentalGraduatesB = DepartmentalGraduatesB.fromMap(document.data());
     _departmentalGraduatesBList.add(departmentalGraduatesB);
   });
 

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../notifier/departmental_graduates_d_notifier.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -22,13 +23,15 @@ String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://facebook.com/";
 String urlInstagram = "https://www.instagram.com/";
 String urlLinkedIn = "https://www.linkedin.com/";
+String urlSnapchat = "https://www.snapchat.com/";
+String urlTikTok = "https://www.tiktok.com/";
 
 
 String departmentName = "Economics Department";
 String courseDepartmentName = "Economics";
 
-String reachDetails = "Reach";
-String autoBioDetails = "AutoBio";
+String reachDetails = "Contacts";
+String autoBioDetails = "AutoBiography";
 
 String callButton = "Call";
 String messageButton = "Send a Message";
@@ -38,18 +41,23 @@ String twitterButton = "My Twitter";
 String instagramButton = "My Instagram";
 String linkedInButton = "My LinkedIn";
 String facebookButton = "My Facebook";
+String snapchatButton = "My Snapchat";
+String tikTokButton = "My TikTok";
 
 String autobiographyTitle = "Autobiography\n";
 String nicknameTitle = "My Nickname\n";
 String bestMomentTitle = "Best Moment in School\n";
 String worstMomentTitle = "Worst Moment in School\n";
 String whyCourseOfStudyTitle = "Why study $courseDepartmentName\n";
-String favouriteCoursesTitle = "Favourite Courses\n";
+String favouriteCourseTitle = "Favourite Course\n";
 String favouriteLocationOnCampusTitle = "Favourite Place on Campus\n";
+String favSchoolActivityTitle = "Favourite School Activity\n";
+String scpcExecutiveTitle = "SCPC Executive Position\n";
+String scpcExecutivePositionTitle = "SCPC Executive Position\n";
 String favoriteSportOnCampusTitle = "Favourite Sport on Campus\n";
 String departmentExecutiveTitle = "Department Executive\n";
 String departmentExecutivePositionTitle = "Department Executive Position\n";
-String whatsNextAfterTitle = "What's next after B.Sc\n";
+String whatsNextAfterTitle = "What's next after Passing Out\n";
 String highSchoolTitle = "Secondary School Name\n";
 String highSchoolGraduationYearTitle = "Secondary School Graduation Year\n";
 String currentResidenceStateTitle = "State of Residence\n";
@@ -122,7 +130,12 @@ var _name;
 var _nickname;
 var _philosophy;
 var _phone;
-var _favouriteCourses;
+var _snapchat;
+var _tikTok;
+var _favSchoolActivity;
+var _scpcExecutive;
+var _scpcExecutivePosition;
+var _favouriteCourse;
 var _departmentExecutive;
 var _departmentExecutivePosition;
 var _favouriteLocationOnCampus;
@@ -377,9 +390,14 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
     _highSchool = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.highSchool;
     _highSchoolGraduationYear = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.highSchoolGraduationYear;
     _linkedIn = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.linkedIn;
-    _favouriteCourses = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.favouriteCourses;
+    _favouriteCourse = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.favouriteCourse;
     _departmentExecutive = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.departmentExecutive;
     _departmentExecutivePosition = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.departmentExecutivePosition;
+    _snapchat = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.snapchat;
+    _tikTok = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.tikTok;
+    _favSchoolActivity = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.favSchoolActivity;
+    _scpcExecutive = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.scpcExecutive;
+    _scpcExecutivePosition = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.scpcExecutivePosition;
     _favouriteLocationOnCampus = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.favouriteLocationOnCampus;
     _favoriteSportOnCampus = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.favoriteSportOnCampus;
     _originState = departmentalGraduatesDNotifier.currentDepartmentalGraduatesD.stateOfOrigin;
@@ -470,6 +488,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                 );
               }
             }()),
+
             (() {
               if (_phone.toString().isNotEmpty) {
                 return Padding(
@@ -532,6 +551,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                 );
               }
             }()),
+
             (() {
               if (_phone.toString().isNotEmpty) {
                 return Padding(
@@ -596,6 +616,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                 );
               }
             }()),
+
             (() {
               if (_email.toString().isNotEmpty) {
                 return Padding(
@@ -652,6 +673,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                 );
               }
             }()),
+
             (() {
               if (_twitter.toString().isNotEmpty) {
                 return Padding(
@@ -673,7 +695,13 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
-                        launchURL(urlTwitter + _twitter);
+                        if (_twitter.toString().startsWith('@')) {
+                          var most = _twitter.toString().substring(1);
+                          launchURL(urlTwitter + most);
+                        }
+                        else {
+                          launchURL(urlTwitter + _twitter);
+                        }
                       },
                     ),
                   ),
@@ -708,6 +736,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                 );
               }
             }()),
+
             (() {
               if (_instagram.toString().isNotEmpty) {
                 return Padding(
@@ -729,7 +758,13 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
-                        launchURL(urlInstagram + _instagram);
+                        if (_instagram.toString().startsWith('@')) {
+                          var most = _instagram.toString().substring(1);
+                          launchURL(urlInstagram + most);
+                        }
+                        else {
+                          launchURL(urlInstagram + _instagram);
+                        }
                       },
                     ),
                   ),
@@ -764,6 +799,133 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                 );
               }
             }()),
+
+            (() {
+              if (_snapchat.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: splashColorTwo,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 2,
+                      color: buttonColor,
+                      icon: new Icon(
+                        MdiIcons.snapchat,
+                        color: iconTextColor,
+                      ),
+                      label: Text(snapchatButton,
+                          style: GoogleFonts.abel(
+                              color: iconTextColor,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300)),
+                      onPressed: () {
+                        if (_snapchat.toString().startsWith('@')) {
+                          var most = _instagram.toString().substring(1);
+                          launchURL(urlSnapchat + most);
+                        }
+                        else {
+                          launchURL(urlSnapchat + _snapchat);
+                        }
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: splashColorTwo,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        elevation: 2,
+                        color: buttonColor,
+                        icon: new Icon(
+                          MdiIcons.snapchat,
+                          color: iconTextColor,
+                        ),
+                        label: Text(snapchatButton,
+                            style: GoogleFonts.abel(
+                                color: iconTextColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300)),
+                        onPressed: () {
+                          launchURL(urlSnapchat + _snapchat);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
+            (() {
+              if (_tikTok.toString().isNotEmpty) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: InkWell(
+                    splashColor: splashColorTwo,
+                    child: RaisedButton.icon(
+                      shape: BeveledRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      elevation: 2,
+                      color: buttonColor,
+                      icon: new FaIcon(
+                        FontAwesomeIcons.tiktok,
+                        color: iconTextColor,
+                      ),
+                      label: Text(tikTokButton,
+                          style: GoogleFonts.abel(
+                              color: iconTextColor,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w300)),
+                      onPressed: () {
+                        if (_tikTok.toString().startsWith('@')) {
+                          var most = _tikTok.toString().substring(1);
+                          launchURL(urlTikTok + most);
+                        }
+                        else {
+                          launchURL(urlTikTok + _tikTok);
+                        }
+                      },
+                    ),
+                  ),
+                );
+              } else {
+                return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: InkWell(
+                      splashColor: splashColorTwo,
+                      child: RaisedButton.icon(
+                        shape: BeveledRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        elevation: 2,
+                        color: buttonColor,
+                        icon: new FaIcon(
+                          FontAwesomeIcons.tiktok,
+                          color: iconTextColor,
+                        ),
+                        label: Text(tikTokButton,
+                            style: GoogleFonts.abel(
+                                color: iconTextColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300)),
+                        onPressed: () {
+                          launchURL(urlTikTok + _tikTok);
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }()),
+
             (() {
               if (_facebook.toString().isNotEmpty) {
                 return Padding(
@@ -826,6 +988,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                 );
               }
             }()),
+
             (() {
               if (_linkedIn.toString().isNotEmpty) {
                 return Padding(
@@ -1332,7 +1495,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
           }()),
 
           (() {
-            if (_favouriteCourses.toString().isNotEmpty) {
+            if (_favouriteCourse.toString().isNotEmpty) {
               return Padding(
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Container(
@@ -1347,7 +1510,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                           TextSpan(
                             children: <TextSpan>[
                               TextSpan(
-                                  text: favouriteCoursesTitle,
+                                  text: favouriteCourseTitle,
                                   style:  GoogleFonts.aBeeZee(
                                     color: textColor,
                                     fontSize: 19,
@@ -1355,7 +1518,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                                   )
                               ),
                               TextSpan(
-                                  text: ' '+_favouriteCourses,
+                                  text: ' '+_favouriteCourse,
                                   style: GoogleFonts.trykker(
                                     color: textColor,
                                     fontSize: 19,
@@ -1392,7 +1555,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                               TextSpan(
                                 children: <TextSpan>[
                                   TextSpan(
-                                      text: favouriteCoursesTitle,
+                                      text: favouriteCourseTitle,
                                       style:  GoogleFonts.aBeeZee(
                                         color: textColor,
                                         fontSize: 19,
@@ -1400,7 +1563,7 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                                       )
                                   ),
                                   TextSpan(
-                                      text: ' '+_favouriteCourses,
+                                      text: ' '+_favouriteCourse,
                                       style: GoogleFonts.trykker(
                                         color: textColor,
                                         fontSize: 19,
@@ -1587,6 +1750,99 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                                   ),
                                   TextSpan(
                                       text: ' '+_favoriteSportOnCampus,
+                                      style: GoogleFonts.trykker(
+                                        color: textColor,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w300,
+                                      )
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      decoration: BoxDecoration(
+                          color: shapeDecorationColor.withAlpha(50),
+                          borderRadius: new BorderRadius.circular(10)
+                      ),
+                    ),
+                  )
+              );
+            }
+          }()),
+
+          (() {
+            if (_favSchoolActivity.toString().isNotEmpty) {
+              return Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Container(
+                  child: Material(
+                    color: materialBackgroundColor,
+                    child: InkWell(
+                      splashColor: splashColor,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                        child: Text.rich(
+                          TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: favSchoolActivityTitle,
+                                  style:  GoogleFonts.aBeeZee(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: ' '+_favSchoolActivity,
+                                  style: GoogleFonts.trykker(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  decoration: BoxDecoration(
+                      color: shapeDecorationColor.withAlpha(50),
+                      borderRadius: new BorderRadius.circular(10)
+                  ),
+                ),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Container(
+                      child: Material(
+                        color: materialBackgroundColor,
+                        child: InkWell(
+                          splashColor: splashColor,
+                          onTap: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                            child: Text.rich(
+                              TextSpan(
+                                children: <TextSpan>[
+                                  TextSpan(
+                                      text: favSchoolActivityTitle,
+                                      style:  GoogleFonts.aBeeZee(
+                                        color: textColor,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold,
+                                      )
+                                  ),
+                                  TextSpan(
+                                      text: ' '+_favSchoolActivity,
                                       style: GoogleFonts.trykker(
                                         color: textColor,
                                         fontSize: 19,
@@ -1867,6 +2123,99 @@ class _MyDepartmentalGraduatesDetailsPageDState extends State<MyDepartmentalGrad
                                   ),
                                   TextSpan(
                                       text: ' '+_departmentExecutivePosition,
+                                      style: GoogleFonts.trykker(
+                                        color: textColor,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w300,
+                                      )
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      decoration: BoxDecoration(
+                          color: shapeDecorationColor.withAlpha(50),
+                          borderRadius: new BorderRadius.circular(10)
+                      ),
+                    ),
+                  )
+              );
+            }
+          }()),
+
+          (() {
+            if (_scpcExecutive.toString() == "Yes") {
+              return Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Container(
+                  child: Material(
+                    color: materialBackgroundColor,
+                    child: InkWell(
+                      splashColor: splashColor,
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                        child: Text.rich(
+                          TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: scpcExecutivePositionTitle,
+                                  style:  GoogleFonts.aBeeZee(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.bold,
+                                  )
+                              ),
+                              TextSpan(
+                                  text: ' '+_scpcExecutivePosition,
+                                  style: GoogleFonts.trykker(
+                                    color: textColor,
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w300,
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  decoration: BoxDecoration(
+                      color: shapeDecorationColor.withAlpha(50),
+                      borderRadius: new BorderRadius.circular(10)
+                  ),
+                ),
+              );
+            } else {
+              return Visibility(
+                  visible: !_isVisible,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Container(
+                      child: Material(
+                        color: materialBackgroundColor,
+                        child: InkWell(
+                          splashColor: splashColor,
+                          onTap: () {},
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
+                            child: Text.rich(
+                              TextSpan(
+                                children: <TextSpan>[
+                                  TextSpan(
+                                      text: scpcExecutivePositionTitle,
+                                      style:  GoogleFonts.aBeeZee(
+                                        color: textColor,
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.bold,
+                                      )
+                                  ),
+                                  TextSpan(
+                                      text: ' '+_scpcExecutivePosition,
                                       style: GoogleFonts.trykker(
                                         color: textColor,
                                         fontSize: 19,

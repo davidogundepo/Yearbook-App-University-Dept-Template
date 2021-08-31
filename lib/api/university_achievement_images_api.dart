@@ -4,12 +4,12 @@ import '../model/UniversityAchievements.dart';
 import '../notifier/university_achievement_images_notifier.dart';
 
 getUniversityAchievements(UniversityAchievementsNotifier universityAchievementsNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance.collection('UniversityAchievementImages').getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('UniversityAchievementImages').get();
 
   List<UniversityAchievements> _universityAchievementsList = [];
 
-  snapshot.documents.forEach((document) {
-    UniversityAchievements universityAchievements = UniversityAchievements.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    UniversityAchievements universityAchievements = UniversityAchievements.fromMap(document.data());
     _universityAchievementsList.add(universityAchievements);
   });
 

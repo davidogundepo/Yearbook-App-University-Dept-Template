@@ -22,8 +22,8 @@ String urlFacebook = "https://facebook.com/";
 String urlInstagram = "https://www.instagram.com/";
 String urlLinkedIn = "https://www.linkedin.com/";
 
-String reachDetails = "Reach";
-String autoBioDetails = "AutoBio";
+String reachDetails = "Contacts";
+String autoBioDetails = "AutoBiography";
 
 String callButton = "Call";
 String messageButton = "Send a Message";
@@ -33,6 +33,8 @@ String twitterButton = "My Twitter";
 String instagramButton = "My Instagram";
 String linkedInButton = "My LinkedIn";
 String facebookButton = "My Facebook";
+String snapchatButton = "My Snapchat";
+String tikTokButton = "My TikTok";
 
 String autobiographyTitle = "Autobiography\n";
 String positionEnforcingTitle = "Staff Position Enforcing\n";
@@ -603,7 +605,13 @@ class _MyDepartmentalStaffDetailsPageState extends State<MyDepartmentalStaffDeta
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
-                        launchURL(urlTwitter + _twitter);
+                        if (_twitter.toString().startsWith('@')) {
+                          var most = _twitter.toString().substring(1);
+                          launchURL(urlTwitter + most);
+                        }
+                        else {
+                          launchURL(urlTwitter + _twitter);
+                        }
                       },
                     ),
                   ),
@@ -659,7 +667,13 @@ class _MyDepartmentalStaffDetailsPageState extends State<MyDepartmentalStaffDeta
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
-                        launchURL(urlInstagram + _instagram);
+                        if (_instagram.toString().startsWith('@')) {
+                          var most = _instagram.toString().substring(1);
+                          launchURL(urlInstagram + most);
+                        }
+                        else {
+                          launchURL(urlInstagram + _instagram);
+                        }
                       },
                     ),
                   ),

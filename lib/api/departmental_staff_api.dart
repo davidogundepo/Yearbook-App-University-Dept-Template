@@ -4,13 +4,13 @@ import '../model/DepartmentalStaff.dart';
 import '../notifier/departmental_staff_notifier.dart';
 
 getDepartmentalStaff(DepartmentalStaffNotifier departmentalStaffNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('DepartmentalStaff').orderBy("id").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('DepartmentalStaff').orderBy("id").get();
 
   List<DepartmentalStaff> _departmentalStaffList = [];
 
-  snapshot.documents.forEach((document) {
-    DepartmentalStaff departmentalStaff = DepartmentalStaff.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    DepartmentalStaff departmentalStaff = DepartmentalStaff.fromMap(document.data());
     _departmentalStaffList.add(departmentalStaff);
   });
 

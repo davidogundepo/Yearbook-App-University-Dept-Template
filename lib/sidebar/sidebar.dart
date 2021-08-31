@@ -44,6 +44,7 @@ Color materialBackgroundColor = Colors.transparent;
 Color shimmerBaseColor = Colors.white;
 Color shimmerHighlightColor = Color.fromRGBO(162, 30, 124, 1);
 Color shapeDecorationTextColor = Colors.white;
+Color cardColor = Color.fromRGBO(162, 92, 124, 1);
 Color shapeDecorationTextColorTwo = Color.fromRGBO(162, 30, 124, 1);
 Color containerBackgroundColor = Color.fromRGBO(162, 30, 124, 1);
 Color containerBackgroundColorTwo = Color.fromRGBO(162, 78, 124, 1);
@@ -124,6 +125,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin<S
             children: <Widget>[
               Expanded(
                 child: Card(
+                  color: cardColor,
                   elevation: 20,
                   margin: EdgeInsets.all(0),
                   child: Align(

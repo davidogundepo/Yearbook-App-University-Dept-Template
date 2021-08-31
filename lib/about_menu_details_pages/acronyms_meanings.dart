@@ -105,6 +105,14 @@ class _AcronymsMeaningsState extends State<AcronymsMeanings> {
                                   ),
                                 ),
                                 TextSpan(
+                                  text: uniben+'\n\n',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    color: cardBackgroundTextColor,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                TextSpan(
                                   text: icdat+'\n\n',
                                   style: TextStyle(
                                     fontSize: 13,

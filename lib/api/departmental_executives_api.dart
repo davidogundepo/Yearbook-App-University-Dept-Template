@@ -4,13 +4,13 @@ import '../model/DepartmentalExecutives.dart';
 import '../notifier/departmental_executives_notifier.dart';
 
 getDepartmentalExecutives(DepartmentalExecutivesNotifier departmentalExecutivesNotifier) async{
-  QuerySnapshot snapshot = await Firestore.instance
-      .collection('DepartmentalExecutives').orderBy("id").getDocuments();
+  QuerySnapshot snapshot = await FirebaseFirestore.instance
+      .collection('DepartmentalExecutives').orderBy("id").get();
 
   List<DepartmentalExecutives> _departmentalExecutivesList = [];
 
-  snapshot.documents.forEach((document) {
-    DepartmentalExecutives departmentalExecutives = DepartmentalExecutives.fromMap(document.data);
+  snapshot.docs.forEach((document) {
+    DepartmentalExecutives departmentalExecutives = DepartmentalExecutives.fromMap(document.data());
     _departmentalExecutivesList.add(departmentalExecutives);
   });
 
