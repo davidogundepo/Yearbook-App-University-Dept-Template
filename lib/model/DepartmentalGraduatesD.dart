@@ -20,8 +20,6 @@ class DepartmentalGraduatesD {
   String phone;
   String snapchat;
   String tikTok;
-  String scpcExecutive;
-  String scpcExecutivePosition;
   String favSchoolActivity;
   String favouriteCourse;
   String departmentExecutive;
@@ -45,8 +43,6 @@ class DepartmentalGraduatesD {
     favouriteCourse = data['favourite_course'];
     departmentExecutive = data['department_executive'];
     departmentExecutivePosition = data['department_executive_position'];
-    scpcExecutive = data['scpc_executive'];
-    scpcExecutivePosition = data['scpc_executive_position'];
     snapchat = data['snapchat'];
     tikTok = data['tiktok'];
     favSchoolActivity = data['fav_school_activity'];

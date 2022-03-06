@@ -325,6 +325,7 @@ class _MyDepartmentalGraduatesPageCState extends State<MyDepartmentalGraduatesPa
                                             ),
                                           ),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
@@ -335,6 +336,7 @@ class _MyDepartmentalGraduatesPageCState extends State<MyDepartmentalGraduatesPa
                                             color: textColor,
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutDepartment(context);
                                         },
                                       ),
@@ -345,6 +347,7 @@ class _MyDepartmentalGraduatesPageCState extends State<MyDepartmentalGraduatesPa
                                             color: textColor,
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutUniversityState(context);
                                         },
                                       ),
@@ -356,6 +359,7 @@ class _MyDepartmentalGraduatesPageCState extends State<MyDepartmentalGraduatesPa
                                               color: textColor,
                                             ),),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
@@ -366,6 +370,7 @@ class _MyDepartmentalGraduatesPageCState extends State<MyDepartmentalGraduatesPa
                                             color: textColor,
                                           ),),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutAppDetailsPage(context);
                                         },
                                       ),
@@ -401,7 +406,7 @@ class _MyDepartmentalGraduatesPageCState extends State<MyDepartmentalGraduatesPa
                       child: Text(
                           thrownName,
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.amaticSC(
+                          style: GoogleFonts.abel(
                               color: textColor,
                               fontSize: 26.0,
                               fontWeight: FontWeight.bold

@@ -266,6 +266,7 @@ class _MyDepartmentalStaffPageState extends State<MyDepartmentalStaffPage> {
                                             ),
                                           ),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToWhoWeArePage(context);
                                           }
                                       ),
@@ -279,6 +280,7 @@ class _MyDepartmentalStaffPageState extends State<MyDepartmentalStaffPage> {
                                           ),
                                         ),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutDepartment(context);
                                         },
                                       ),
@@ -292,6 +294,7 @@ class _MyDepartmentalStaffPageState extends State<MyDepartmentalStaffPage> {
                                           ),
                                         ),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutUniversityState(context);
                                         },
                                       ),
@@ -305,6 +308,7 @@ class _MyDepartmentalStaffPageState extends State<MyDepartmentalStaffPage> {
                                             ),
                                           ),
                                           onTap: () {
+                                            Navigator.of(context).pop(false);
                                             navigateToAcronymsMeaningsPage(context);
                                           }
                                       ),
@@ -318,6 +322,7 @@ class _MyDepartmentalStaffPageState extends State<MyDepartmentalStaffPage> {
                                           ),
                                         ),
                                         onTap: () {
+                                          Navigator.of(context).pop(false);
                                           navigateToAboutAppDetailsPage(context);
                                         },
                                       ),
@@ -352,7 +357,7 @@ class _MyDepartmentalStaffPageState extends State<MyDepartmentalStaffPage> {
                       heightFactor: 0.6,
                       child: Text(
                           thrownName,
-                          style:  GoogleFonts.amaticSC(
+                          style:  GoogleFonts.abel(
                               color: textColor,
                               fontSize: 26.0,
                               fontWeight: FontWeight.bold

@@ -35,7 +35,7 @@ class DepartmentalStaff {
     qualification = data['qualification'];
     courseTeaching = data['course_teaching'];
     yearOfInception = data['year_of_inception'];
-    linkedIn = data['linkedin'];
+    linkedIn = data['linkedIn'];
   }
 
 }

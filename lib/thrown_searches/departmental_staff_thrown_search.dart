@@ -38,7 +38,7 @@ class MyDepartmentalStaffSearch extends SearchDelegate {
         primaryColor: appBarBackgroundColor,
         primaryIconTheme: IconThemeData(color: appBarIconColor),
         primaryColorBrightness: Brightness.light,
-        textTheme: TextTheme(title: TextStyle(color: appBarTextColor, fontSize: 25)),
+        textTheme: TextTheme(subtitle1: TextStyle(color: appBarTextColor, fontSize: 25)),
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: TextStyle(color: appBarTextColor.withAlpha(60)),
         ),
@@ -221,7 +221,7 @@ class MyDepartmentalStaffSearch extends SearchDelegate {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 10),
                                       child: Text(
-                                          search[position].positionEnforcing,
+                                          search[position].staffPosition,
                                           style: GoogleFonts.varela(
                                               color: textColor,
                                               fontStyle: FontStyle.italic

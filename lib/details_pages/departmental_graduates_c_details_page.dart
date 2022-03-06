@@ -23,8 +23,8 @@ String urlTwitter = "https://twitter.com/";
 String urlFacebook = "https://facebook.com/";
 String urlInstagram = "https://www.instagram.com/";
 String urlLinkedIn = "https://www.linkedin.com/";
-String urlSnapchat = "https://www.snapchat.com/";
-String urlTikTok = "https://www.tiktok.com/";
+String urlSnapchat = "https://www.snapchat.com/add/";
+String urlTikTok = "https://www.tiktok.com/@";
 
 
 String departmentName = "Economics Department";
@@ -52,8 +52,6 @@ String whyCourseOfStudyTitle = "Why study $courseDepartmentName\n";
 String favouriteCourseTitle = "Favourite Course\n";
 String favouriteLocationOnCampusTitle = "Favourite Place on Campus\n";
 String favSchoolActivityTitle = "Favourite School Activity\n";
-String scpcExecutiveTitle = "SCPC Executive Position\n";
-String scpcExecutivePositionTitle = "SCPC Executive Position\n";
 String favoriteSportOnCampusTitle = "Favourite Sport on Campus\n";
 String departmentExecutiveTitle = "Department Executive\n";
 String departmentExecutivePositionTitle = "Department Executive Position\n";
@@ -134,8 +132,6 @@ var _phone;
 var _snapchat;
 var _tikTok;
 var _favSchoolActivity;
-var _scpcExecutive;
-var _scpcExecutivePosition;
 var _favouriteCourse;
 var _departmentExecutive;
 var _departmentExecutivePosition;
@@ -172,7 +168,8 @@ class _MyDepartmentalGraduatesDetailsPageCState extends State<MyDepartmentalGrad
     if(await canLaunch(url)) {
       await launch(url);
     } else{
-      print("Can't Launch $url");
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: new Text("The required App not installed")));
     }
   }
 
@@ -398,8 +395,6 @@ class _MyDepartmentalGraduatesDetailsPageCState extends State<MyDepartmentalGrad
     _snapchat = departmentalGraduatesCNotifier.currentDepartmentalGraduatesC.snapchat;
     _tikTok = departmentalGraduatesCNotifier.currentDepartmentalGraduatesC.tikTok;
     _favSchoolActivity = departmentalGraduatesCNotifier.currentDepartmentalGraduatesC.favSchoolActivity;
-    _scpcExecutive = departmentalGraduatesCNotifier.currentDepartmentalGraduatesC.scpcExecutive;
-    _scpcExecutivePosition = departmentalGraduatesCNotifier.currentDepartmentalGraduatesC.scpcExecutivePosition;
     _favouriteLocationOnCampus = departmentalGraduatesCNotifier.currentDepartmentalGraduatesC.favouriteLocationOnCampus;
     _favoriteSportOnCampus = departmentalGraduatesCNotifier.currentDepartmentalGraduatesC.favoriteSportOnCampus;
     _originState = departmentalGraduatesCNotifier.currentDepartmentalGraduatesC.stateOfOrigin;
@@ -688,7 +683,7 @@ class _MyDepartmentalGraduatesDetailsPageCState extends State<MyDepartmentalGrad
                       elevation: 2,
                       color: buttonColor,
                       icon: new Icon(
-                        MdiIcons.twitterCircle,
+                        MdiIcons.twitter,
                         color: iconTextColorTwo,
                       ),
                       label: Text(twitterButton,
@@ -721,7 +716,7 @@ class _MyDepartmentalGraduatesDetailsPageCState extends State<MyDepartmentalGrad
                         elevation: 2,
                         color: buttonColor,
                         icon: new Icon(
-                          MdiIcons.twitterCircle,
+                          MdiIcons.twitter,
                           color: iconTextColorTwo,
                         ),
                         label: Text(twitterButton,
@@ -815,11 +810,11 @@ class _MyDepartmentalGraduatesDetailsPageCState extends State<MyDepartmentalGrad
                       color: buttonColor,
                       icon: new Icon(
                         MdiIcons.snapchat,
-                        color: iconTextColor,
+                        color: iconTextColorTwo,
                       ),
                       label: Text(snapchatButton,
                           style: GoogleFonts.abel(
-                              color: iconTextColor,
+                              color: iconTextColorTwo,
                               fontSize: 18,
                               fontWeight: FontWeight.w300)),
                       onPressed: () {
@@ -848,11 +843,11 @@ class _MyDepartmentalGraduatesDetailsPageCState extends State<MyDepartmentalGrad
                         color: buttonColor,
                         icon: new Icon(
                           MdiIcons.snapchat,
-                          color: iconTextColor,
+                          color: iconTextColorTwo,
                         ),
                         label: Text(snapchatButton,
                             style: GoogleFonts.abel(
-                                color: iconTextColor,
+                                color: iconTextColorTwo,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w300)),
                         onPressed: () {
@@ -1003,7 +998,7 @@ class _MyDepartmentalGraduatesDetailsPageCState extends State<MyDepartmentalGrad
                       elevation: 2,
                       color: buttonColor,
                       icon: new Icon(
-                        MdiIcons.linkedinBox,
+                        MdiIcons.linkedin,
                         color: iconTextColorTwo,
                       ),
                       label: Text(
@@ -1034,7 +1029,7 @@ class _MyDepartmentalGraduatesDetailsPageCState extends State<MyDepartmentalGrad
                         elevation: 2,
                         color: buttonColor,
                         icon: new Icon(
-                          MdiIcons.linkedinBox,
+                          MdiIcons.linkedin,
                           color: iconTextColorTwo,
                         ),
                         label: Text(
@@ -2126,99 +2121,6 @@ class _MyDepartmentalGraduatesDetailsPageCState extends State<MyDepartmentalGrad
                                   ),
                                   TextSpan(
                                       text: ' '+_departmentExecutivePosition,
-                                      style: GoogleFonts.trykker(
-                                        color: textColor,
-                                        fontSize: 19,
-                                        fontWeight: FontWeight.w300,
-                                      )
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      decoration: BoxDecoration(
-                          color: shapeDecorationColor.withAlpha(50),
-                          borderRadius: new BorderRadius.circular(10)
-                      ),
-                    ),
-                  )
-              );
-            }
-          }()),
-
-          (() {
-            if (_scpcExecutive.toString() == "Yes") {
-              return Padding(
-                padding: const EdgeInsets.only(top: 20.0),
-                child: Container(
-                  child: Material(
-                    color: materialBackgroundColor,
-                    child: InkWell(
-                      splashColor: splashColor,
-                      onTap: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                        child: Text.rich(
-                          TextSpan(
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: scpcExecutivePositionTitle,
-                                  style:  GoogleFonts.aBeeZee(
-                                    color: textColor,
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.bold,
-                                  )
-                              ),
-                              TextSpan(
-                                  text: ' '+_scpcExecutivePosition,
-                                  style: GoogleFonts.trykker(
-                                    color: textColor,
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.w300,
-                                  )
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  decoration: BoxDecoration(
-                      color: shapeDecorationColor.withAlpha(50),
-                      borderRadius: new BorderRadius.circular(10)
-                  ),
-                ),
-              );
-            } else {
-              return Visibility(
-                  visible: !_isVisible,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 20.0),
-                    child: Container(
-                      child: Material(
-                        color: materialBackgroundColor,
-                        child: InkWell(
-                          splashColor: splashColor,
-                          onTap: () {},
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 15, top: 15, left: 25),
-                            child: Text.rich(
-                              TextSpan(
-                                children: <TextSpan>[
-                                  TextSpan(
-                                      text: scpcExecutivePositionTitle,
-                                      style:  GoogleFonts.aBeeZee(
-                                        color: textColor,
-                                        fontSize: 19,
-                                        fontWeight: FontWeight.bold,
-                                      )
-                                  ),
-                                  TextSpan(
-                                      text: ' '+_scpcExecutivePosition,
                                       style: GoogleFonts.trykker(
                                         color: textColor,
                                         fontSize: 19,

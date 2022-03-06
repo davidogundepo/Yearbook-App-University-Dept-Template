@@ -420,27 +420,34 @@ class _AboutDepartment extends State<AboutDepartment> {
                                 )),
                           ),
                           PieChart(
-                            legendStyle: TextStyle(
-                              color: materialTextColor,
-                            ),
                             dataMap: departmentStudentsMap,
-                            animationDuration: Duration(seconds: 10),
-                            chartLegendSpacing: 42.0,
+                            animationDuration: Duration(milliseconds: 8000),
+                            chartLegendSpacing: 42,
                             chartRadius: MediaQuery.of(context).size.width / 2.7,
-                            showChartValuesInPercentage: false,
-                            showChartValues: true,
-                            showChartValuesOutside: false,
-                            chartValueBackgroundColor: chartBackgroundColor,
                             colorList: departmentStudentsColorList,
-                            showLegends: true,
-                            legendPosition: LegendPosition.right,
-                            decimalPlaces: 0,
-                            showChartValueLabel: true,
-                            initialAngle: 0,
-                            chartValueStyle: defaultChartValueStyle.copyWith(
-                              color: chartTextColor,
-                            ),
+                            initialAngleInDegree: 0,
                             chartType: ChartType.disc,
+                            legendOptions: LegendOptions(
+                              showLegendsInRow: false,
+                              legendPosition: LegendPosition.right,
+                              showLegends: true,
+                              legendShape: BoxShape.circle,
+                              legendTextStyle: TextStyle(
+                                color: materialTextColor,
+                              ),
+                            ),
+                            chartValuesOptions: ChartValuesOptions(
+                              showChartValueBackground: true,
+                              showChartValues: true,
+                              // showChartValueLabel: true,
+                              chartValueStyle: defaultChartValueStyle.copyWith(
+                                color: chartTextColor,
+                              ),
+                              showChartValuesInPercentage: false,
+                              showChartValuesOutside: false,
+                              decimalPlaces: 0,
+                              chartValueBackgroundColor: chartBackgroundColor,
+                            ),
                           ),
                         ],
                       ),
@@ -536,8 +543,10 @@ class _AboutDepartment extends State<AboutDepartment> {
                       )
                     ],
                   );
+
                 },
                 itemWidth: 350,
+                layout: SwiperLayout.STACK,
               ),
 
             ),

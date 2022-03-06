@@ -42,7 +42,7 @@ class MyDepartmentalGraduatesSearchD extends SearchDelegate {
         primaryColor: appBarBackgroundColor,
         primaryIconTheme: IconThemeData(color: appBarIconColor),
         primaryColorBrightness: Brightness.light,
-        textTheme: TextTheme(title: TextStyle(color: appBarTextColor, fontSize: 25)),
+        textTheme: TextTheme(subtitle1: TextStyle(color: appBarTextColor, fontSize: 25)),
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: TextStyle(color: appBarTextColor.withAlpha(60)),
         ),
@@ -216,7 +216,7 @@ class MyDepartmentalGraduatesSearchD extends SearchDelegate {
                                           ),
 
                                           (() {
-                                            if (search[position].cdsExecutive == "Yes") {
+                                            if (search[position].departmentExecutive == "Yes") {
                                               return
                                                 Row(
                                                   children: <Widget>[

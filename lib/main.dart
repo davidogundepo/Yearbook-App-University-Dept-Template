@@ -1,4 +1,6 @@
 
+import 'dart:async';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,45 +27,46 @@ void main() async {
   await Firebase.initializeApp();
   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  runZonedGuarded(() {
+    runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => DepartmentalGraduatesANotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DepartmentalGraduatesBNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DepartmentalGraduatesCNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DepartmentalGraduatesDNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DepartmentalExecutivesNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => DepartmentalStaffNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => AchievementsNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UniversityAchievementsNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UniversityArialNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SideBarNotifier(),
+        ),
 
-  runApp(
-      MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => DepartmentalGraduatesANotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => DepartmentalGraduatesBNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => DepartmentalGraduatesCNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => DepartmentalGraduatesDNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => DepartmentalExecutivesNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => DepartmentalStaffNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => AchievementsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => UniversityAchievementsNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => UniversityArialNotifier(),
-          ),
-          ChangeNotifierProvider(
-            create: (context) => SideBarNotifier(),
-          ),
-
-        ],
-        child: MyApp(),
-      )
+      ],
+      child: MyApp(),
+    ));
+    }, FirebaseCrashlytics.instance.recordError
   );
+
 }
 
 class MyApp extends StatefulWidget {
