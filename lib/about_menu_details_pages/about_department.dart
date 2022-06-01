@@ -36,22 +36,23 @@ double maleDepartmentStudentsPopulation = 31;
 double femaleDepartmentStudentsPopulation = 22;
 
 
-Color backgroundColor = Colors.blueGrey[900];
-Color appBarBackgroundColor = Colors.blueGrey[800];
-Color appBarIconColor = Colors.blueGrey;
-Color appBarBackgroundTextColor = Colors.blueGrey;
-Color cardBackgroundColor = Colors.black38;
-Color cardTextColor = Colors.blueGrey;
+Color backgroundColor = Color.fromRGBO(187, 100, 100, 1);
+Color appBarBackgroundColor = Color.fromRGBO(187, 100, 100, 1);
+Color appBarIconColor = Color.fromRGBO(124, 56, 56, 1.0);
+Color appBarBackgroundTextColor = Color.fromRGBO(124, 56, 56, 1.0);
+Color cardBackgroundColor = Color.fromRGBO(124, 56, 56, 1.0);
+Color cardTextColor = Color.fromRGBO(219, 129, 129, 1.0);
 Color materialColor = Colors.transparent;
-Color materialInkWellColor = Colors.blueGrey;
-Color materialTextColor = Colors.blueGrey;
-Color containerColor = Colors.blueGrey.withAlpha(50);
-Color containerTextColor = Colors.blueGrey[900];
-Color containerColor2 = Colors.blueGrey;
-Color chartBackgroundColor = Colors.blueGrey[200];
-Color chartTextColor = Colors.blueGrey[900].withOpacity(0.9);
-Color firstDepartmentStudentsChartColor = Color.fromRGBO(145, 172, 179, 1).withAlpha(160);
-Color secondDepartmentStudentsChartColor = Color.fromRGBO(184, 186, 181, 1);
+Color materialInkWellColor = Color.fromRGBO(124, 56, 56, 1.0);
+Color materialTextColor = Color.fromRGBO(219, 129, 129, 1.0);
+Color materialTextColorTwo = Color.fromRGBO(124, 56, 56, 1.0);
+Color containerColor = Color.fromRGBO(124, 56, 56, 1.0);
+Color containerTextColor = Color.fromRGBO(219, 129, 129, 1.0);
+Color containerColor2 = Color.fromRGBO(124, 56, 56, 1.0);
+Color chartBackgroundColor = Color.fromRGBO(124, 56, 56, 1.0);
+Color chartTextColor = Color.fromRGBO(217, 202, 202, 1.0);
+Color firstDepartmentStudentsChartColor = Color.fromRGBO(219, 129, 129, 1.0);
+Color secondDepartmentStudentsChartColor = Color.fromRGBO(200, 169, 169, 1.0);
 
 class AboutDepartment extends StatefulWidget {
 
@@ -393,7 +394,7 @@ class _AboutDepartment extends State<AboutDepartment> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
-                height: 250,
+                height: 380,
                 decoration: BoxDecoration(
                     color: containerColor,
                     borderRadius: new BorderRadius.circular(10)
@@ -429,7 +430,7 @@ class _AboutDepartment extends State<AboutDepartment> {
                             chartType: ChartType.disc,
                             legendOptions: LegendOptions(
                               showLegendsInRow: false,
-                              legendPosition: LegendPosition.right,
+                              legendPosition: LegendPosition.bottom,
                               showLegends: true,
                               legendShape: BoxShape.circle,
                               legendTextStyle: TextStyle(
@@ -462,7 +463,7 @@ class _AboutDepartment extends State<AboutDepartment> {
               child: Text(universityAchievements,
                 style: TextStyle(
                     fontSize: 20,
-                    color: materialTextColor,
+                    color: materialTextColorTwo,
                     fontWeight: FontWeight.w500
                 ),
               ),
@@ -500,6 +501,7 @@ class _AboutDepartment extends State<AboutDepartment> {
             Container(
               height: 340,
               child: Swiper(
+                autoplay: true,
                 viewportFraction: 0.8,
                 scale: 0.9,
                 itemCount: achievementsNotifier.achievementsList.length,

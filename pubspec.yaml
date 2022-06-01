@@ -53,23 +53,24 @@ flutter_native_splash:
   image: assets/images/coventry.png
   color: "FFFFFF"
   android: false
-  ios: true
+  ios: false
   android_gravity: fill
   ios_content_mode: scaleAspectFill
 
 
 dev_dependencies:
-  flutter_native_splash: ^1.2.3
+  flutter_native_splash: ^2.1.0
   flutter_test:
     sdk: flutter
 
 flutter_app_name:
-  name: "NG University Department Template"
+#  name: "NG University Department Template"
+  name: "NG Big Uni"
 
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/images/cu_logo.jpeg"
+  image_path: "assets/images/ng_uni_icon_2.jpeg"
 
 #dependency_overrides:
 #  firebase_core: 0.5.3

@@ -63,27 +63,27 @@ double currentAndPastMaleStudentPopulation = 36541;
 double currentAndPastFemaleStudentPopulation = 21523;
 
 
-Color backgroundColor = Color.fromRGBO(25, 59, 111, 1);
-Color appBarBackgroundColor = Color.fromRGBO(25, 49, 111, 1);
-Color appBarIconColor = Colors.blueGrey;
-Color appBarBackgroundTextColor = Colors.blueGrey;
-Color cardBackgroundColor = Color.fromRGBO(25, 49, 111, 1);
-Color textColor = Color.fromRGBO(25, 49, 111, 1);
-Color cardTextColor = Colors.blueGrey;
+Color backgroundColor = Color.fromRGBO(107, 79, 79, 1);
+Color appBarBackgroundColor = Color.fromRGBO(107, 79, 79, 1);
+Color appBarIconColor = Color.fromRGBO(229, 204, 204, 1.0);
+Color appBarBackgroundTextColor = Color.fromRGBO(229, 204, 204, 1.0);
+Color cardBackgroundColor = Color.fromRGBO(95, 65, 65, 1.0);
+Color textColor = Color.fromRGBO(229, 204, 204, 1.0);
+Color cardTextColor = Color.fromRGBO(229, 204, 204, 1.0);
 Color materialColor = Colors.transparent;
-Color materialInkWellColor = Colors.blue.withAlpha(80);
-Color materialTextColor = Colors.blueGrey;
-Color containerColor = Colors.blueGrey.withAlpha(50);
-Color containerTextColor = Colors.white.withAlpha(110);
-Color containerColor2 = Colors.blueGrey;
-Color chartBackgroundColor = Colors.grey[200];
-Color chartTextColor = Colors.black;
-Color chartTextColorTwo = Color.fromRGBO(25, 49, 111, 1);
-Color firstCurrentUniversityChartColor = Colors.white.withAlpha(110);
-Color secondCurrentUniversityChartColor = Color.fromRGBO(25, 49, 111, 1);
-Color thirdCurrentUniversityChartColor = Colors.lightBlue;
-Color firstCurrentAndPastUniversityStudentsChartColor = Color.fromRGBO(25, 49, 111, 1);
-Color secondCurrentAndPastUniversityStudentsChartColor = Color.fromRGBO(184, 186, 181, 1);
+Color materialInkWellColor = Color.fromRGBO(95, 65, 65, 1.0);
+Color materialTextColor = Color.fromRGBO(229, 204, 204, 1.0);
+Color containerColor = Color.fromRGBO(95, 65, 65, 1.0);
+Color containerTextColor = Color.fromRGBO(229, 204, 204, 1.0);
+Color containerColor2 = Color.fromRGBO(95, 65, 65, 1.0);
+Color chartBackgroundColor = Colors.white;
+Color chartTextColor = Color.fromRGBO(107, 79, 79, 1);
+Color chartTextColorTwo = Color.fromRGBO(107, 79, 79, 1);
+Color firstCurrentUniversityChartColor = Color.fromRGBO(186, 152, 152, 1.0);
+Color secondCurrentUniversityChartColor = Colors.white.withAlpha(110);
+Color thirdCurrentUniversityChartColor = Color.fromRGBO(119, 90, 90, 1.0);
+Color firstCurrentAndPastUniversityStudentsChartColor = Color.fromRGBO(152, 95, 62, 1.0);
+Color secondCurrentAndPastUniversityStudentsChartColor = Color.fromRGBO(167, 117, 86, 1.0);
 
 class AboutUniversityState extends StatefulWidget {
 
@@ -440,7 +440,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
               child: Container(
-                height: 350,
+                height: 380,
                 decoration: BoxDecoration(
                     color: containerColor,
                     borderRadius: new BorderRadius.circular(10)
@@ -768,6 +768,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             Container(
               height: 340,
               child: Swiper(
+                autoplay: true,
                 viewportFraction: 0.8,
                 scale: 0.9,
                 itemCount: universityArialNotifier.universityArialList.length,
@@ -854,6 +855,7 @@ class _AboutUniversityState extends State<AboutUniversityState> {
             Container(
               height: 340,
               child: Swiper(
+                autoplay: true,
                 viewportFraction: 0.8,
                 scale: 0.9,
                 itemCount: universityAchievementsNotifier.universityAchievementsList.length,

@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
+        app:lottie_loop="false"
         app:lottie_rawRes="@raw/paper_airplane"
         app:lottie_speed="1.00" />
 
@@ -23,9 +23,9 @@
         android:layout_width="match_parent"
         android:layout_marginBottom="160dp"
         android:layout_height="wrap_content"
-        android:text="ABC University"
-        android:textColor="#1A1B1B"
-        android:textSize="35sp"
+        android:text="@string/abc_university"
+        android:textColor="#418AB3"
+        android:textSize="25sp"
         android:textAlignment="center"
         android:gravity="center_horizontal|center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
