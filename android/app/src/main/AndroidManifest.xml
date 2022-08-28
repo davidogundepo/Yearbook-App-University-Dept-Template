@@ -27,7 +27,7 @@
     </queries>
 
     <application
-        android:label="NG Big Uni"
+        android:label="University Dept"
         android:icon="@mipmap/ic_launcher"
         android:extractNativeLibs="true"
         android:name="${applicationName}"
